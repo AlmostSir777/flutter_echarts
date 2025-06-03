@@ -196,8 +196,7 @@ class EchartsState extends State<Echarts> with WidgetsBindingObserver {
   }
 
   void themeChange() async {
-    final themeStr =
-        this.widget.theme != null ? '\'${this.widget.theme}\'' : 'null';
+    final themeStr = _isDark == true ? '\'dark\'' : '\'light\'';
     await _controller.runJavaScript('''
       var chart = echarts.getInstanceByDom(document.getElementById('chart'));
       if (chart != null) {
